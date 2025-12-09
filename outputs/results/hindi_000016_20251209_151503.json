@@ -1,0 +1,152 @@
+{
+  "metadata": {
+    "audio_file": "hindi_000016.wav",
+    "timestamp": "2025-12-09T15:15:03.746867",
+    "processing_time_seconds": 82.12,
+    "user_prompt": "there is a women yes or no"
+  },
+  "clap_inf": {
+    "top_sounds": [
+      {
+        "sound": "wind",
+        "confidence": 0.18796443939208984
+      },
+      {
+        "sound": "speech",
+        "confidence": 0.18001632392406464
+      },
+      {
+        "sound": "weapon sounds",
+        "confidence": 0.17664377391338348
+      },
+      {
+        "sound": "female",
+        "confidence": 0.16805186867713928
+      },
+      {
+        "sound": "footsteps",
+        "confidence": 0.14998279511928558
+      }
+    ],
+    "all_scores": {
+      "wind": 0.18796443939208984,
+      "speech": 0.18001632392406464,
+      "weapon sounds": 0.17664377391338348,
+      "female": 0.16805186867713928,
+      "footsteps": 0.14998279511928558,
+      "music": 0.13734084367752075
+    },
+    "dominant_sound": "wind",
+    "dominant_confidence": 0.18796443939208984
+  },
+  "speech_inf": {
+    "text": " हाँ हाँ मूली भी है, मूली 20 रुपए है, होक में लीजिये गाता 15 के पड़ेगा",
+    "language": "Hindi",
+    "duration": 5.34,
+    "segments": [
+      {
+        "id": 0,
+        "seek": 0,
+        "start": 0,
+        "end": 5.26,
+        "text": " हाँ हाँ मूली भी है, मूली 20 रुपए है, होक में लीजिये गाता 15 के पड़ेगा",
+        "tokens": [
+          50365,
+          37139,
+          17937,
+          3941,
+          223,
+          37139,
+          17937,
+          3941,
+          223,
+          48449,
+          8703,
+          224,
+          46758,
+          31881,
+          8485,
+          255,
+          31881,
+          37139,
+          43372,
+          11,
+          48449,
+          8703,
+          224,
+          46758,
+          31881,
+          945,
+          8485,
+          108,
+          8703,
+          223,
+          3941,
+          103,
+          3941,
+          237,
+          37139,
+          43372,
+          11,
+          37139,
+          33926,
+          41858,
+          48449,
+          21981,
+          31945,
+          8485,
+          110,
+          31881,
+          3941,
+          250,
+          33279,
+          48268,
+          21981,
+          8485,
+          245,
+          17937,
+          36158,
+          17937,
+          2119,
+          31970,
+          21981,
+          8485,
+          103,
+          3941,
+          94,
+          3941,
+          120,
+          21981,
+          3941,
+          245,
+          17937,
+          50628
+        ],
+        "temperature": 0,
+        "avg_logprob": -0.22968148,
+        "compression_ratio": 1.460177,
+        "no_speech_prob": 0.0084637925
+      }
+    ],
+    "has_speech": true
+  },
+  "mellow_inf": {
+    "inference": [
+      ". ? ? ? : wants a message:? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?  ? ? ?  ?  ?  ?  ?  ?  ?  ?  ?  ?   ?  ?  ?   ?  ?   ?   ?   ?   ?   ?    ?                                                                                                                                                                                                                                          "
+    ],
+    "soft_prompt_used": " produce a concise analysis covering: high-level summary: Here is a synthesized soft prompt for the MELLOW audio reasoning model:\n\n\"Audio features a female speaker responding in Hindi, 'हाँ हाँ मूली भी है, मूली 20 रुपए है, होक में लीजिये गाता 15 के पड़ेगा', amidst gentle wind sounds and faint weapon sounds in the background, suggesting an outdoor marketplace scenario with a woman affirming something.\"",
+    "examples_used": [
+      [
+        "/mnt/c/Users/vishe/Downloads/backend_ltuas_architecture/resources/audio/hindi_000016.wav",
+        "/mnt/c/Users/vishe/Downloads/backend_ltuas_architecture/resources/audio/hindi_000016.wav",
+        " produce a concise analysis covering: high-level summary: Here is a synthesized soft prompt for the MELLOW audio reasoning model:\n\n\"Audio features a female speaker responding in Hindi, 'हाँ हाँ मूली भी है, मूली 20 रुपए है, होक में लीजिये गाता 15 के पड़ेगा', amidst gentle wind sounds and faint weapon sounds in the background, suggesting an outdoor marketplace scenario with a woman affirming something.\""
+      ]
+    ],
+    "success": true
+  },
+  "soft_prompts": {
+    "clap": "Non-speech audio detected: wind (18.8%), speech (18.0%), weapon sounds (17.7%)",
+    "whisper": "Speech transcription (Hindi): \" हाँ हाँ मूली भी है, मूली 20 रुपए है, होक में लीजिये गाता 15 के पड़ेगा\"",
+    "unified": "Here is a synthesized soft prompt for the MELLOW audio reasoning model:\n\n\"Audio features a female speaker responding in Hindi, 'हाँ हाँ मूली भी है, मूली 20 रुपए है, होक में लीजिये गाता 15 के पड़ेगा', amidst gentle wind sounds and faint weapon sounds in the background, suggesting an outdoor marketplace scenario with a woman affirming something.\""
+  }
+}

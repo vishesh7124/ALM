@@ -82,13 +82,16 @@ class LTUASPipeline:
             whisper_soft_prompt,
             user_prompt
         )
+
+        system_prompt = f" produce a concise analysis covering: high-level summary: {unified_soft_prompt}"
+
         print(f"  Unified prompt: {unified_soft_prompt}")
         
         # STAGE 4: MELLOW reasoning
         print("\nStage 4: MELLOW reasoning...")
         mellow_result = self.mellow.process(
             audio_path,
-            unified_soft_prompt,
+            system_prompt,
             reference_audio
         )
         print(f"  ✓ Generated {len(mellow_result.get('inference', ''))} chars")

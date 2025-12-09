@@ -22,7 +22,8 @@ class Config:
     # Model configurations
     CLAP_CONFIG = {
         "enable_fusion": False,  # False for <10sec audio
-        "model_name": "630k-audioset-best.pt",  # Default checkpoint
+        "model_name": "630k-audioset-best.pt",
+        "temperature": 0.2,  # Default checkpoint
     }
     
     WHISPER_CONFIG = {
@@ -32,7 +33,7 @@ class Config:
     }
     
     LLM_CONFIG = {
-        "model": "meta-llama/llama-4-maverick-17b-128e-instruct",  # Faster than gpt-oss-120b
+        "model": "llama-3.3-70b-versatile",  # Faster than gpt-oss-120b
         "temperature": 0.7,
         "max_tokens": 512,
         "reasoning_effort": "medium",
@@ -41,25 +42,24 @@ class Config:
     MELLOW_CONFIG = {
         "config": "v0",
         "model": "v0",
-        "max_len": 300,
-        "top_p": 0.8,
-        "temperature": 1.0,
+        "max_len": 400,
+        "top_p": 0.7,
+        "temperature": 0.6,
     }
     
     # CLAP sound categories (expand as needed)
     CLAP_SOUND_CATEGORIES = [
         # Human sounds
-        "speech", "shouting", "crying", "laughing", "coughing",
+        "speech",
         # Nature sounds
-        "rain", "thunder", "wind", "ocean waves", "birds chirping",
-        # Urban sounds
-        "car engine", "car horn", "siren", "construction noise", "traffic",
+        "wind",
+        "female",
         # Action sounds
-        "gunshots", "explosions", "footsteps", "door slam", "glass breaking",
+        "weapon sounds",
         # Musical
-        "music", "drums", "guitar", "piano", "violin",
+        "footsteps",
         # Ambient
-        "silence", "white noise", "crowd noise", "applause",
+        "beeps",
     ]
     
     # Processing settings

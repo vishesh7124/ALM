@@ -123,25 +123,31 @@ def python_pipeline_worker(run_id: str, audio_path: str, prompt: Optional[str]):
             cmd += ["--prompt", prompt]
 
         add_log(run_id, f"Executing: {' '.join(cmd)}")
+        print(f"\n===== RUN {run_id}: EXECUTING SUBPROCESS =====")
+        print(" ".join(cmd), "\n")
 
-        # Popen with line-buffering for realtime logs
+        # Popen with realtime streaming
         process = subprocess.Popen(
             cmd,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             bufsize=1,
-            universal_newlines=True,  # decode text automatically
+            universal_newlines=True,
         )
 
-        # ----- REALTIME STDOUT -----
+        # ----- STREAM STDOUT -----
         for line in process.stdout:
             line = line.strip()
             if not line:
                 continue
 
+            # PRINT TO SERVER TERMINAL
+            print(f"[subprocess stdout] {line}")
+
+            # SAVE TO RUN LOGS
             add_log(run_id, line)
 
-            # Stage updates like Node backend
+            # Stage detection
             if "CLAP" in line and "✓" in line:
                 update_node(run_id, "clap", "success")
 
@@ -163,21 +169,22 @@ def python_pipeline_worker(run_id: str, audio_path: str, prompt: Optional[str]):
             if "Output saved" in line:
                 update_node(run_id, "json-output", "running")
 
-        # ----- REALTIME STDERR -----
+        # ----- STREAM STDERR -----
         for err in process.stderr:
             err = err.strip()
             if err:
+                print(f"[subprocess stderr] {err}")
                 add_log(run_id, f"[stderr] {err}")
 
         code = process.wait()
+        print(f"\n===== SUBPROCESS EXITED (code {code}) =====\n")
 
-        # FAILURE CASE
         if code != 0:
             update_run(run_id, {"status": "error", "error": f"Exited with {code}"})
             add_log(run_id, f"Pipeline failed with exit code {code}")
             return
 
-        # SUCCESS CASE → load latest JSON output
+        # SUCCESS → load JSON
         final_json = load_latest_result_json()
         if final_json:
             runs[run_id]["result"] = final_json
@@ -190,7 +197,7 @@ def python_pipeline_worker(run_id: str, audio_path: str, prompt: Optional[str]):
     except Exception as e:
         update_run(run_id, {"status": "error", "error": str(e)})
         add_log(run_id, f"Pipeline crashed: {e}")
-
+        print(f"[pipeline error] {e}")
 
 # ---------------------------------------------------------
 # /run endpoint
